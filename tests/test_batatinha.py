@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 from fastapi.testclient import TestClient
 
-from fast_zero.app import app
+from fast_zero.batatinha import app
 
 
 def test_batatinha_deve_retornar_ola_mundo_no_html():
