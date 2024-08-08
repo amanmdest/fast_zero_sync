@@ -62,8 +62,11 @@ def test_update_user(client):
 
 
 def test_update_user_raise_httpexception(client):
-    # response = client.put('/users/{user_id}')
-    ...
+    response = client.put('/users/5')
+
+    assert response.is_error
+    # assert response.status_code == 422 and 404
+    # help: Break down assertion into multiple parts
 
 
 def test_delete_user(client):
@@ -72,6 +75,9 @@ def test_delete_user(client):
     assert response.status_code == HTTPStatus.OK
     assert response.json() == {'message': 'user deleted'}
 
+
 def test_delete_user_raise_httpexception(client):
-    # response = client.delete('/users/{user_id}')
-    ...
+    response = client.delete('/users/7')
+
+    assert response.is_error
+    assert response.status_code == HTTPStatus.NOT_FOUND

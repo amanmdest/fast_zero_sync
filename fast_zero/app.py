@@ -51,7 +51,3 @@ def delete_user(user_id: int):
     del database[user_id - 1]
 
     return {'message': 'user deleted'}
-
-@app.get('/users/', response_model=UserList)
-def single():
-    ...
