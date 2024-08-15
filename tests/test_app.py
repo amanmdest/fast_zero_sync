@@ -1,5 +1,7 @@
 from http import HTTPStatus
 
+from fast_zero.schemas import UserPublic
+
 
 def test_read_root_deve_retornar_ok_e_ola_mundo(client):
     response = client.get('/')  # Act
@@ -9,7 +11,7 @@ def test_read_root_deve_retornar_ok_e_ola_mundo(client):
 
 
 def test_create_user(client):
-    response = client.post(  # UserSchema
+    response = client.post(
         '/users/',
         json={
             'username': 'testusername',
@@ -18,9 +20,7 @@ def test_create_user(client):
         },
     )
 
-    # Validar status code
     assert response.status_code == HTTPStatus.CREATED
-    # Validar UserPublic
     assert response.json() == {
         'username': 'testusername',
         'email': 'test@test.com',
@@ -28,22 +28,29 @@ def test_create_user(client):
     }
 
 
-def test_read_user(client):
+def test_read_users(client):
     response = client.get('/users/')
 
     assert response.status_code == HTTPStatus.OK
-    assert response.json() == {
-        'users': [
-            {
-                'username': 'testusername',
-                'email': 'test@test.com',
-                'id': 1,
-            }
-        ]
-    }
+    assert response.json() == {'users': []}
 
 
-def test_update_user(client):
+def test_read_users_with_user(client, user):
+    user_schema = UserPublic.model_validate(user).model_dump()
+
+    response = client.get('/users/')
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {'users': [user_schema]}
+
+
+# def test_get_user_by_id(client):
+#    response = client.get('/users/1')
+#
+#    assert response.status_code == HTTPStatus.OK
+
+
+def test_update_user(client, user):
     response = client.put(
         '/users/1',
         json={
@@ -61,7 +68,7 @@ def test_update_user(client):
     }
 
 
-def test_update_user_raise_httpexception(client):
+def test_update_user_raise_httpexception(client, user):
     response = client.put('/users/5')
 
     assert response.is_error
@@ -69,14 +76,14 @@ def test_update_user_raise_httpexception(client):
     # help: Break down assertion into multiple parts
 
 
-def test_delete_user(client):
+def test_delete_user(client, user):
     response = client.delete('/users/1')
 
     assert response.status_code == HTTPStatus.OK
     assert response.json() == {'message': 'user deleted'}
 
 
-def test_delete_user_raise_httpexception(client):
+def test_delete_user_raise_httpexception(client, user):
     response = client.delete('/users/7')
 
     assert response.is_error
