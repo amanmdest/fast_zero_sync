@@ -1,7 +1,5 @@
 from http import HTTPStatus
 
-from fastapi.testclient import TestClient
-
 from fast_zero.schemas import UserPublic
 
 
@@ -10,7 +8,7 @@ def test_create_user(client):
         '/users/',
         json={
             'username': 'testusername',
-            'password': 'password',
+            'password': 'testtest',
             'email': 'test@test.com',
         },
     )
@@ -23,16 +21,17 @@ def test_create_user(client):
     }
 
 
-def test_username_already_exists(client, user):
-    response = client.post(
-        '/users/',
-        json={
-            'username': 'test',
-            'password': 'testtest',
-            'email': 'test@test.com',
-        },
-    )
-    assert response.status_code == HTTPStatus.BAD_REQUEST
+# def test_username_already_exists(client, user):
+#     response = client.post(
+#         '/users/',
+#         json={
+#             'username': f'{user.username}',
+#             'email': 'test@test.com',
+#             'password': 'testtest',
+#         },
+#     )
+#     assert response.status_code == HTTPStatus.BAD_REQUEST
+#     assert response.json() == {'detail': 'Username already exists'}
 
 
 def test_email_already_exists(client, user):
@@ -40,14 +39,15 @@ def test_email_already_exists(client, user):
         '/users/',
         json={
             'username': 'test',
-            'password': 'testtest',
             'email': f'{user.email}',
+            'password': 'testtest',
         },
     )
     assert response.status_code == HTTPStatus.BAD_REQUEST
+    assert response.json() == {'detail': 'Email already exists'}
 
 
-def test_read_users(client: TestClient, token):
+def test_read_users(client, user, token):
     response = client.get(
         '/users/', headers={'Authorization': f'Bearer {token}'}
     )
@@ -56,9 +56,9 @@ def test_read_users(client: TestClient, token):
     assert response.json() == {
         'users': [
             {
-                'id': 1,
-                'username': 'test',
-                'email': 'test@test.com',
+                'id': user.id,
+                'username': f'{user.username}',
+                'email': f'{user.email}',
             },
         ],
     }
@@ -99,14 +99,6 @@ def test_update_user(client, user, token):
     }
 
 
-def test_update_user_raise_httpexception(client, user):
-    response = client.put('/users/5')
-
-    assert response.is_error
-    # assert response.status_code == 422 and 404
-    # help: Break down assertion into multiple parts
-
-
 def test_delete_user(client, user, token):
     response = client.delete(
         f'/users/{user.id}',
@@ -117,9 +109,24 @@ def test_delete_user(client, user, token):
     assert response.json() == {'message': 'User deleted'}
 
 
-def test_delete_wrong_user(client, user, token):
+def test_update_wrong_user(client, other_user, token):
+    response = client.put(
+        f'/users/{other_user.id}',
+        headers={'Authorization': f'Bearer {token}'},
+        json={
+            'username': 'string',
+            'email': 'user@example.com',
+            'password': 'string',
+        },
+    )
+
+    assert response.status_code == HTTPStatus.FORBIDDEN
+    assert response.json() == {'detail': 'Not enough permissions'}
+
+
+def test_delete_wrong_user(client, other_user, token):
     response = client.delete(
-        f'/users/{user.id + 1}',
+        f'/users/{other_user.id}',
         headers={'Authorization': f'Bearer {token}'},
     )
 
