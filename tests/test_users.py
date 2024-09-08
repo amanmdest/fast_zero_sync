@@ -21,6 +21,14 @@ def test_create_user(client):
     }
 
 
+# def test_should_raise_bad_request_same_username(client, user):
+#     user_schema = UserSchema.model_validate(user).model_dump()
+#     response = client.post('/users/', json=user_schema)
+#
+#     assert response.status_code == HTTPStatus.BAD_REQUEST
+#     assert response.json() == {'detail': 'Username already exists'}
+#
+#
 # def test_username_already_exists(client, user):
 #     response = client.post(
 #         '/users/',
@@ -75,10 +83,11 @@ def test_read_users_with_user(client, user, token):
     assert response.json() == {'users': [user_schema]}
 
 
-# def test_get_user_by_id(client):
-#    response = client.get('/users/1')
-#
-#    assert response.status_code == HTTPStatus.OK
+def test_get_user_by_id(client, token):
+    response = client.get(
+        '/users/1', headers={'Authorization': f'Bearer {token}'}
+    )
+    assert response.status_code == HTTPStatus.OK
 
 
 def test_update_user(client, user, token):

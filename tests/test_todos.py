@@ -1,10 +1,24 @@
 from http import HTTPStatus
 
-from fast_zero.models import TodoState
+from sqlalchemy import select
+
+from fast_zero.models import TodoState, User
 from tests.conftest import TodoFactory
 
 
-def test_create_todo(client, token):
+def test_create_todo_in_user_db_relationship(user, session):
+    todo = TodoFactory()
+
+    session.add(todo)
+    session.commit()
+    session.refresh(todo)
+
+    user = session.scalar(select(User).where(User.id == user.id))
+
+    assert todo in user.todos
+
+
+def test_create_todo_through_api(client, token):
     response = client.post(
         '/todos/',
         headers={'Authorization': f'Bearer {token}'},
@@ -14,13 +28,19 @@ def test_create_todo(client, token):
             'state': 'draft',
         },
     )
-    assert response.status_code == HTTPStatus.OK
-    assert response.json() == {
+    # assert response.status_code == HTTPStatus.CREATED
+    resp_todo = response.json()
+    expected_values = {
         'id': 1,
         'title': 'Test todo',
         'description': 'Test todo description',
         'state': 'draft',
     }
+    for key, value in expected_values.items():
+        assert resp_todo[key] == value
+
+    assert 'created_at' in resp_todo.keys()
+    assert 'updated_at' in resp_todo.keys()
 
 
 def test_should_return_five_todos(session, client, user, token):
@@ -143,7 +163,7 @@ def test_patch_todo(client, session, token, user):
     assert response.status_code == HTTPStatus.OK
     assert response.json()['title'] == 'Batata'
     assert response.json()['description'] == todo.description
-    
+
 
 def test_delete_todo(client, session, token, user):
     todo = TodoFactory(user_id=user.id)

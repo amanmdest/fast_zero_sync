@@ -14,6 +14,7 @@ alembic = "^1.13.2"
 pwdlib = {extras = ["argon2"], version = "^0.2.0"}
 python-multipart = "^0.0.9"
 pyjwt = "^2.9.0"
+psycopg = {extras = ["binary"], version = "^3.2.1"}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -24,6 +25,7 @@ taskipy = "^1.13.0"
 httpx = "^0.27.0"
 factory-boy = "^3.3.1"
 freezegun = "^1.5.1"
+testcontainers = "^4.8.1"
 
 [tool.ruff]
 line-length = 79
@@ -32,6 +34,10 @@ extend-exclude = ['migrations']
 [tool.ruff.lint]
 preview = true
 select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.lint.pylint]
+max-positional-args = 10
+max-args = 10
 
 [tool.ruff.format]
 preview = true
