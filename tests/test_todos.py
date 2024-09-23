@@ -3,7 +3,7 @@ from http import HTTPStatus
 from sqlalchemy import select
 
 from fast_zero.models import TodoState, User
-from tests.conftest import TodoFactory
+from tests.factories import TodoFactory
 
 
 def test_create_todo_in_user_db_relationship(user, session):
@@ -28,7 +28,7 @@ def test_create_todo_through_api(client, token):
             'state': 'draft',
         },
     )
-    # assert response.status_code == HTTPStatus.CREATED
+    assert response.status_code == HTTPStatus.OK
     resp_todo = response.json()
     expected_values = {
         'id': 1,

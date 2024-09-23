@@ -1,6 +1,8 @@
 services:
   fastzero_database:
     image: postgres
+    env_file:
+      - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
@@ -9,11 +11,18 @@ services:
       POSTGRES_PASSWORD: app_password
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   fastzero_app:
     image: fastzero_app
-    entrypoint: ./entrypoint.sh
     build: .
+    env_file: 
+      - .env
+    entrypoint: ./entrypoint.sh
     ports:
       - "8000:8000"
     depends_on:

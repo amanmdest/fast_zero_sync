@@ -2,7 +2,7 @@ from http import HTTPStatus
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy import select
+from sqlalchemy import or_, select
 from sqlalchemy.orm import Session
 
 from fast_zero.database import get_session
@@ -18,7 +18,6 @@ T_CurrentUser = Annotated[User, Depends(get_current_user)]
 
 @router.get('/', response_model=UserList)
 def read_users(
-    current_user: T_CurrentUser,
     session: T_Session,
     limit: int = 10,
     skip: int = 0,
@@ -31,7 +30,7 @@ def read_users(
 def create_user(user: UserSchema, session: T_Session):
     db_user = session.scalar(
         select(User).where(
-            (User.username == user.username or User.email == user.email)
+            or_(User.username == user.username, User.email == user.email)
         )
     )
 
@@ -47,10 +46,12 @@ def create_user(user: UserSchema, session: T_Session):
                 detail='Email already exists',
             )
 
+    hashed_password = get_password_hash(user.password)
+
     db_user = User(
         username=user.username,
         email=user.email,
-        password=get_password_hash(user.password),
+        password=hashed_password,
     )
 
     session.add(db_user)
