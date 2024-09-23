@@ -40,9 +40,9 @@ def test_get_current_user_without_sub(session):
 
 def test_user_not_found_in_db(session):
     token = jwt.encode(
-        {'sub': 'JurassicPark'}, 
-        settings.SECRET_KEY, 
-        algorithm=settings.ALGORITHM
+        {'sub': 'JurassicPark'},
+        settings.SECRET_KEY,
+        algorithm=settings.ALGORITHM,
     )
 
     with pytest.raises(HTTPException) as excinfo:
