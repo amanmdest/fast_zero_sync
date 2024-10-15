@@ -18,23 +18,24 @@ Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e au
 
 O conteúdo do curso se encontra _gratuito_ em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
 
-## Requisitos do Projeto
-- Python 3.11 ou superior (recomendação do autor)
-- Fastapi 0.111.0 (Web Framework de alto desempenho para construir API's)
-- SQLAlchemy 2.0.31 (Um Toolkit de ORM)
-- Pydantic
-- Alembic 1.13.1 (Ferramenta de migração de banco de dados)
-### Dependências de Desenvolvimento:
-- Poetry 1.8.3 (Gerenciador de pacotes do Python) - Usado para configurações do ambiente
-- Taskipy 1.13.0 (Executor de tarefas para projetos python)
-- Ruff 0.4.9 (Um linter Python e formatador de código extremamente rápido, escrito em Rust.)
-- ignr 2.2 (Plugin para gerar um arquivo .gitignore baseado na linguagem que voce definir.)
-- Auth0 - (A universal authentication & authorization platform for web, mobile and legacy applications)
-- PyJWT 2.8.0 (Autenticador entre duas partes, por meio de um token assinado que segue o padrão(RFC-7519))
-- Psycopg 3.2.1 (Adaptador de PostgreSQL para Python)
-### Dependências TDD:
-- Pytest 8.2.2 (Criar testes simples e poderosos com Python)
+## 🧰 Tools/ Ferramentas usadas neste Projeto
+- Python 3.12
+- Fastapi 0.111.0 -> Web Framework de alto desempenho para construir API's com Python.
+- Uvicorn 0.31.1 -> Servidor ASGI.
+- SQLAlchemy 2.0.35 -> Biblioteca open-source com Toolkit de SQL e Object Relational Mapper(ORM).
+- Pydantic 2.8.2 -> Validação de dados e alguns gerenciamentos de configuração.
+- Alembic 1.13.2 -> Ferramenta de migração de banco de dados.
+### 🛠️ Dependências de Desenvolvimento:
+- Poetry 1.8.4 -> Gerenciador de pacotes do Python (usado para configurar o ambiente).
+- Taskipy 1.13.0 -> Executor de tarefas para projetos python.
+- [Ruff 0.5.7](https://docs.astral.sh/ruff/) -> Formatador e Linter Python extremamente rápido, escrito em Rust.
+- ignr 2.2 -> Plugin para gerar um arquivo .gitignore baseado na linguagem que voce definir.
+- PyJWT 2.9.0 -> Autenticador entre duas partes, por meio de um token assinado que segue o padrão(RFC-7519)
+- [pwdlib 0.2.1](https://pypi.org/project/pwdlib/) -> auxiliar moderno p/ hashing de passwords
+- psycopg-binary 3.2.3  -> Adaptador de PostgreSQL para Python.
+### 🧪 Dependências TDD:
+- Pytest 8.3.3 (Criar testes simples e poderosos com Python)
 - Pytest-Cov 5.0.0 (Um plugin para produzir relatórios de cobertura de testes)
-- Factory-boy 3.3.0 (Uma biblioteca que permite criar objetos de modelo de teste de forma rápida e fácil.)
+- Factory-boy 3.3.1 (Uma biblioteca que permite criar objetos de modelo de teste de forma rápida e fácil.)
 - Freezegun 1.5.1 (Um biblioteca que permite "congelar" o tempo em um ponto específico ou avançá-lo conforme necessário durante os testes)
-- Testcontainers 4.7.2 (Facilita o uso de contêineres Docker para testes funcionais e de integração)
+- Testcontainers 4.8.2 (Facilita o uso de contêineres Docker para testes funcionais e de integração)
