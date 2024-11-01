@@ -19,6 +19,14 @@ Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e au
 
 O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
 ## Imagens
+- Diagrama Entidade-Relacionamento:
+<img src="imagens/fast_zero_DER.png" alt="DER" style="width:500px;height:auto;">
+
+- Testes Coverage:
+<img src="imagens/fast_zero_coverage.png" alt="coverage" style="width:800px;height:auto;">
+
+- Endpoints:
+<img src="imagens/fast_zero_endpoints.png" alt="endpoints">
 
 ## Rode localmente
 1. Clone o Repositório:
