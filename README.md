@@ -1,4 +1,4 @@
-# FastAPI em: **Listas To-do's** :spiral_notepad: - _"O simples bem feito!"_ 
+<h1 align='center'><em>Fast Zero</em> em: Listas To-do's :zap::spiral_notepad:</h1>
 
 <div align='center'>
 <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi">
@@ -8,18 +8,51 @@
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/amanmdest/fast_zero_sync?color=orange">
 </div>
 <br>
-<p align='center'>API desenvolvida no curso <a href="https://fastapidozer.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de todos nós em Python e também em muito mais do que se permeia o mundo computacional.</p>
+<p align='center'>>>> <q>O simples bem feito!</q> <<<</p>
+<p align='center'>API desenvolvida no curso <a href="https://fastapidozer.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de Python e também em muito mais do que se permeia o mundo computacional.</p>
 
 ## Proposta do Curso | Fast-Zero 
 
-O curso traz em sua bagagem um panorama pontual - e também abrangente - que caminha por conceitos, práticas e ferramentas de desenvolvimento, testes e deploy com Python e FastAPI.
+Tendo como foco o FastAPI, o curso traz em sua bagagem um panorama abrangente - e também pontual - atráves de conceitos, práticas e ferramentas de desenvolvimento e produção: cobertura completa de testes, deploy com a plataforma Fly.io e também um workflow automatizado de Integração Contínua(CI) com GitHub Actions.
 
 Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e autorizações de usuários que podem criar, editar e deletar suas respectivas notas 'To-do'.
 
-O conteúdo do curso se encontra _gratuito_ em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
+O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
+## Imagens
 
-## 🧰 Tools/ Ferramentas usadas neste Projeto
-- Python 3.12.4 
+## Rode localmente
+1. Clone o Repositório:
+```bash
+  git clone "https://github.com/amanmdest/fast_zero_sync"
+```
+2. Ative a máquina virtual e instale dependências:
+```bash
+  poetry shell
+  poetry install
+```
+3. Para rodar o projeto junto ao banco de dados postgres é necessário criar um arquivo .env na raiz do projeto como o do exemplo abaixo:
+```bash
+  .env
+  DATABASE_URL="postgresql+psycopg://app_user:app_password@localhost:5432/app_db"
+  SECRET_KEY="8bf15dc4b43e98a24f62891ebf090e6839d99bce6c669de759706a243ef73737" # token_hex
+  ALGORITHM="HS256"
+  ACCESS_TOKEN_EXPIRE_MINUTES=30
+  
+  POSTGRES_USER=app_user
+  POSTGRES_DB=app_db
+  POSTGRES_PASSWORD=app_password
+```
+4. Buildar a imagem e criar/iniciar o conteiner da aplicação junto ao banco de dados (necessário instalar [docker-compose](https://docs.docker.com/compose/install/)):
+```bash
+  docker compose up --build
+```
+5. Para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de dados:
+```bash
+  task run
+```
+e acesse: http://127.0.0.1:8000/docs
+## Bibliotecas | Ferramentas
+- [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) -> Versão Python utilizada.
 - [Fastapi 0.111.0](https://fastapi.tiangolo.com/) -> Web Framework de alto desempenho para construir API's com Python.
 - [Uvicorn 0.31.1](https://www.uvicorn.org/) -> Servidor ASGI.
 - [SQLAlchemy 2.0.35](https://docs.sqlalchemy.org/en/20/) -> Biblioteca open-source com Toolkit de SQL e Object Relational Mapper(ORM).
