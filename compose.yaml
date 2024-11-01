@@ -6,9 +6,9 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: app_user
-      POSTGRES_DB: app_db
-      POSTGRES_PASSWORD: app_password
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     healthcheck:
@@ -28,7 +28,7 @@ services:
     depends_on:
       - fastzero_database
     environment:
-      DATABASE_URL: postgresql+psycopg://app_user:app_password@fastzero_database:5432/app_db
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@fastzero_database:5432/${POSTGRES_DB}
 
 volumes:
   pgdata:
