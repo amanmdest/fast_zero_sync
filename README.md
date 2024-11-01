@@ -52,7 +52,7 @@ O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aul
 ## Rode localmente
 1. Clone o Repositório:
 ```bash
-  git clone "https://github.com/amanmdest/fast_zero_sync"
+  git clone https://github.com/amanmdest/fast_zero_sync
 ```
 2. Ative a máquina virtual e instale dependências:
 ```bash
