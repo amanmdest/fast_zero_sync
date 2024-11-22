@@ -4,8 +4,8 @@ from typing import Annotated
 
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
-from jwt import DecodeError, ExpiredSignatureError, decode, encode
-from pwdlib import PasswordHash
+from jwt import DecodeError, ExpiredSignatureError, decode, encode  # noqa
+from pwdlib import PasswordHash  # type: ignore
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 from zoneinfo import ZoneInfo
