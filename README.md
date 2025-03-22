@@ -75,7 +75,7 @@ O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aul
 ```bash
   docker compose up --build
 ```
-5. Para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de dados:
+Ou para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de dados:
 ```bash
   task run
 ```
