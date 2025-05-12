@@ -11,7 +11,7 @@ def test_get_token(client, user):
     token = response.json()
 
     assert response.status_code == HTTPStatus.OK
-    assert token['token_type'] == 'bearer'
+    assert token['token_type'] == 'Bearer'
     assert 'access_token' in token
     assert 'token_type' in token
 
@@ -69,7 +69,7 @@ def test_refresh_token(client, token):
     assert response.status_code == HTTPStatus.OK
     assert 'access_token' in data
     assert 'token_type' in data
-    assert data['token_type'] == 'bearer'
+    assert data['token_type'] == 'Bearer'
 
 
 def test_token_dontrefresh_after_time(client, user):

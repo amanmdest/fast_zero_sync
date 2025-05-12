@@ -4,8 +4,8 @@ from typing import Annotated
 
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
-from jwt import DecodeError, ExpiredSignatureError, decode, encode  # noqa
-from pwdlib import PasswordHash  # type: ignore
+from jwt import DecodeError, ExpiredSignatureError, decode, encode
+from pwdlib import PasswordHash
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 from zoneinfo import ZoneInfo
@@ -17,8 +17,8 @@ from fast_zero.settings import Settings
 
 T_Session = Annotated[Session, Depends(get_session)]
 
-pwd_context = PasswordHash.recommended()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='auth/token')
+pwd_context = PasswordHash.recommended()
 settings = Settings()
 
 
@@ -42,6 +42,7 @@ def create_access_token(data: dict):
     encoded_jwt = encode(
         to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM
     )
+
     return encoded_jwt
 
 

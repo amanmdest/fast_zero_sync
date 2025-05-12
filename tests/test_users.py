@@ -87,6 +87,7 @@ def test_get_user_by_id(client, token):
     response = client.get(
         '/users/1', headers={'Authorization': f'Bearer {token}'}
     )
+
     assert response.status_code == HTTPStatus.OK
 
 
