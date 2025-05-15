@@ -4,7 +4,7 @@
 <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi">
 <img alt="Postgres" src="https://img.shields.io/badge/postgres-%23316192.svg?logo=postgresql&logoColor=white">
 <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?logo=docker&logoColor=white">
-<img alt="MIT License" src="https://img.shields.io/badge/License-MIT-green.svg">
+<img alt="Creative Commons License" src="https://img.shields.io/badge/License-Creative%20Commons-white">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/amanmdest/fast_zero_sync?color=orange">
 </div>
 <br>
@@ -75,7 +75,7 @@ O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aul
 ```bash
   docker compose up --build
 ```
-5. Para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de dados:
+Ou para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de dados:
 ```bash
   task run
 ```
