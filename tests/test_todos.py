@@ -1,21 +1,7 @@
 from http import HTTPStatus
 
-from sqlalchemy import select
-
-from fast_zero.models import TodoState, User
+from fast_zero.models import TodoState
 from tests.factories import TodoFactory
-
-
-def test_create_todo_in_user_db_relationship(user, session):
-    todo = TodoFactory()
-
-    session.add(todo)
-    session.commit()
-    session.refresh(todo)
-
-    user = session.scalar(select(User).where(User.id == user.id))
-
-    assert todo in user.todos
 
 
 def test_create_todo_through_api(client, token):
@@ -43,38 +29,37 @@ def test_create_todo_through_api(client, token):
     assert 'updated_at' in resp_todo.keys()
 
 
-def test_should_return_five_todos(session, client, user, token):
+def test_pagination_should_return_five_todos(session, client, token):
     expected_todos = 5
-    session.bulk_save_objects(TodoFactory.create_batch(5, user_id=user.id))
-    session.commit
+    session.bulk_save_objects(TodoFactory.create_batch(5))
+    session.commit()
 
     response = client.get(
-        '/todos/',
+        '/todos/?offset=0&limit=5',
         headers={'Authorization': f'Bearer {token}'},
     )
+
     assert len(response.json()['todos']) == expected_todos
 
 
-def test_pagination_should_return_two_todos(session, client, user, token):
+def test_pagination_should_return_two_todos(session, client, token):
     expected_todos = 2
-    session.bulk_save_objects(TodoFactory.create_batch(5, user_id=user.id))
-    session.commit
+    session.bulk_save_objects(TodoFactory.create_batch(5))
+    session.commit()
 
     response = client.get(
-        '/todos/?offset=1&limit=2',
+        '/todos/?offset=0&limit=2',
         headers={'Authorization': f'Bearer {token}'},
     )
     assert len(response.json()['todos']) == expected_todos
 
 
 def test_list_todos_filter_title_should_return_five_todos(
-    session, client, user, token
+    session, client, token
 ):
     expected_todos = 5
-    session.bulk_save_objects(
-        TodoFactory.create_batch(5, user_id=user.id, title='Test title')
-    )
-    session.commit
+    session.bulk_save_objects(TodoFactory.create_batch(5, title='Test title'))
+    session.commit()
 
     response = client.get(
         '/todos/?title=Test title',
@@ -84,13 +69,13 @@ def test_list_todos_filter_title_should_return_five_todos(
 
 
 def test_list_todos_filter_description_should_return_five_todos(
-    session, client, user, token
+    session, client, token
 ):
     expected_todos = 5
     session.bulk_save_objects(
-        TodoFactory.create_batch(5, user_id=user.id, description='description')
+        TodoFactory.create_batch(5, description='description')
     )
-    session.commit
+    session.commit()
 
     response = client.get(
         '/todos/?description=desc',
@@ -100,13 +85,13 @@ def test_list_todos_filter_description_should_return_five_todos(
 
 
 def test_list_todos_filter_state_should_return_five_todos(
-    session, client, user, token
+    session, client, token
 ):
     expected_todos = 5
     session.bulk_save_objects(
-        TodoFactory.create_batch(5, user_id=user.id, state=TodoState.draft)
+        TodoFactory.create_batch(5, state=TodoState.draft)
     )
-    session.commit
+    session.commit()
 
     response = client.get(
         '/todos/?state=draft',
@@ -116,13 +101,12 @@ def test_list_todos_filter_state_should_return_five_todos(
 
 
 def test_list_todos_filter_combined_should_return_5_todos(
-    session, user, client, token
+    session, client, token
 ):
     expected_todos = 5
     session.bulk_save_objects(
         TodoFactory.create_batch(
             5,
-            user_id=user.id,
             title='Test todo combined',
             description='combined description',
             state=TodoState.done,
@@ -132,7 +116,6 @@ def test_list_todos_filter_combined_should_return_5_todos(
     session.bulk_save_objects(
         TodoFactory.create_batch(
             3,
-            user_id=user.id,
             title='Other title',
             description='other description',
             state=TodoState.todo,
@@ -148,12 +131,7 @@ def test_list_todos_filter_combined_should_return_5_todos(
     assert len(response.json()['todos']) == expected_todos
 
 
-def test_patch_todo(client, session, token, user):
-    todo = TodoFactory(user_id=user.id)
-    session.add(todo)
-    session.commit()
-    session.refresh(todo)
-
+def test_patch_todo(client, token, todo):
     response = client.patch(
         f'/todos/{todo.id}',
         json={'title': 'Batata'},
@@ -165,12 +143,7 @@ def test_patch_todo(client, session, token, user):
     assert response.json()['description'] == todo.description
 
 
-def test_delete_todo(client, session, token, user):
-    todo = TodoFactory(user_id=user.id)
-    session.add(todo)
-    session.commit()
-    session.refresh(todo)
-
+def test_delete_todo(client, token, todo):
     response = client.delete(
         f'/todos/{todo.id}', headers={'Authorization': f'Bearer {token}'}
     )

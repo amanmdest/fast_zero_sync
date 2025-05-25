@@ -18,8 +18,8 @@ from fast_zero.security import get_current_user
 
 router = APIRouter(prefix='/todos', tags=['todos'])
 
-T_Session = Annotated[Session, Depends(get_session)]
 T_CurrentUser = Annotated[User, Depends(get_current_user)]
+T_Session = Annotated[Session, Depends(get_session)]
 
 
 @router.post('/', response_model=TodoPublic)

@@ -1,3 +1,4 @@
+# import factory
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
@@ -8,7 +9,7 @@ from fast_zero.app import app
 from fast_zero.database import get_session
 from fast_zero.models import table_registry
 from fast_zero.security import get_password_hash
-from tests.factories import UserFactory
+from tests.factories import TodoFactory, UserFactory
 
 
 @pytest.fixture(scope='session')
@@ -44,6 +45,16 @@ def session(engine):
 
 
 @pytest.fixture
+def token(client, user):
+    response = client.post(
+        'auth/token/',
+        data={'username': user.email, 'password': user.clean_password},
+    )
+
+    return response.json()['access_token']
+
+
+@pytest.fixture
 def user(session):
     password = 'testtest'
 
@@ -54,6 +65,7 @@ def user(session):
     session.refresh(user)
 
     user.clean_password = 'testtest'  # Monkey Patch
+    # user.id = factory.Sequence(lambda n: f'teste{n}')
 
     return user
 
@@ -74,10 +86,11 @@ def other_user(session):
 
 
 @pytest.fixture
-def token(client, user):
-    response = client.post(
-        'auth/token/',
-        data={'username': user.email, 'password': user.clean_password},
-    )
+def todo(session):
+    todo = TodoFactory()
 
-    return response.json()['access_token']
+    session.add(todo)
+    session.commit()
+    session.refresh(todo)
+
+    return todo

@@ -65,15 +65,14 @@ def create_user(user: UserSchema, session: T_Session):
 def get_user_by_id(
     session: T_Session,
     user_id: int,
-    current_user: T_CurrentUser,
 ):
-    # db_user = session.scalar(select(User).where((User.id == user_id)))
-    # if not db_user:
-    #     raise HTTPException(
-    #         status_code=HTTPStatus.NOT_FOUND, detail='User not found'
-    #     )
+    db_user = session.scalar(select(User).where(User.id == user_id))
+    if not db_user:
+        raise HTTPException(
+            status_code=HTTPStatus.NOT_FOUND, detail='User not found'
+        )
 
-    return current_user
+    return db_user
 
 
 @router.put('/{user_id}', response_model=UserPublic)
