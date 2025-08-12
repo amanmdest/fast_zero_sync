@@ -39,16 +39,6 @@ O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aul
 - [Factory-boy 3.3.1](https://factoryboy.readthedocs.io/en/latest/) -> Uma biblioteca que permite criar objetos de modelo de teste de forma rápida e fácil.
 - [Freezegun 1.5.1](https://github.com/spulec/freezegun) -> Uma biblioteca que permite "congelar" o tempo em um ponto específico ou avançá-lo conforme necessário durante os testes.
 - [Testcontainers 4.8.2](https://github.com/testcontainers) -> Facilita o uso de contêineres Docker para testes funcionais e de integração.
-## Imagens
-- Diagrama Entidade-Relacionamento:
-<img src="imagens/fast_zero_DER.png" alt="DER" style="width:500px;height:auto;">
-
-- Testes Coverage:
-<img src="imagens/fast_zero_coverage.png" alt="coverage" style="width:800px;height:auto;">
-
-- Endpoints:
-<img src="imagens/fast_zero_endpoints.png" alt="endpoints">
-
 ## Rode localmente
 1. Clone o Repositório:
 ```bash
@@ -80,3 +70,12 @@ Ou para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de
   task run
 ```
 e acesse: http://127.0.0.1:8000/docs
+## Imagens
+![DER](imagens/fast_zero_DER.png)
+*Diagrama Entidade-Relacionamento*
+
+![HTML_COV](imagens/fast_zero_coverage.png)
+*Coverage - cobertura de testes do projeto*
+
+![endpoints/ rotas](imagens/fast_zero_endpoints.png)
+*Endpoints/ rotas da API*
