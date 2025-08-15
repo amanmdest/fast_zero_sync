@@ -19,8 +19,8 @@ services:
 
   fastzero_app:
     image: fastzero_app
-    build: .
     entrypoint: ./entrypoint.sh
+    build: .
     env_file: 
       - .env
     ports:
