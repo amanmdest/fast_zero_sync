@@ -9,7 +9,7 @@
 </div>
 <br>
 <p align='center'>>>> <q>O simples bem feito!</q> <<<</p>
-<p align='center'>API desenvolvida no curso <a href="https://fastapidozer.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de Python e também em muito mais do que se permeia o mundo computacional.</p>
+<p align='center'>API desenvolvida no curso <a href="https://fastapidozero.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de Python e também em muito mais do que se permeia o mundo computacional.</p>
 
 ## Proposta do Curso | Fast-Zero 
 
