@@ -19,41 +19,40 @@ Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e au
 
 O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
 ## Bibliotecas | Ferramentas
-- [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) -> Versão Python utilizada.
-- [Fastapi 0.111.0](https://fastapi.tiangolo.com/) -> Web Framework de alto desempenho para construir API's com Python.
-- [Uvicorn 0.31.1](https://www.uvicorn.org/) -> Servidor ASGI.
-- [SQLAlchemy 2.0.35](https://docs.sqlalchemy.org/en/20/) -> Biblioteca open-source com Toolkit de SQL e Object Relational Mapper(ORM).
-- [Pydantic 2.9.2](https://github.com/pydantic/pydantic/releases/tag/v2.9.2) -> Validação de dados e alguns gerenciamentos de configuração.
-- [Alembic 1.13.3](https://alembic.sqlalchemy.org/en/latest/) -> Ferramenta de migração de banco de dados.
+- [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) -> Última versão Python testada.
+- [Fastapi](https://fastapi.tiangolo.com/) -> Web Framework de alto desempenho para construir API's com Python.
+- [Uvicorn](https://www.uvicorn.org/) -> Servidor ASGI.
+- [SQLAlchemy](https://docs.sqlalchemy.org/en/20/) -> Biblioteca open-source com Toolkit de SQL e Object Relational Mapper(ORM).
+- [Pydantic](https://github.com/pydantic/pydantic/releases/tag/v2.9.2) -> Validação de dados e alguns gerenciamentos de configuração.
+- [Alembic](https://alembic.sqlalchemy.org/en/latest/) -> Ferramenta de migração de banco de dados.
 ### 🛠️ Dependências Desenvolvimento:
-- [Poetry 1.8.4](https://python-poetry.org/docs/#zsh) -> Gerenciador de pacotes do Python (usado para configurar o ambiente).
-- [Taskipy 1.13.0](https://pypi.org/project/taskipy/) -> Executor de tarefas para projetos python.
-- [Ruff 0.5.7](https://docs.astral.sh/ruff/) -> Formatador e Linter Python extremamente rápido, escrito em Rust.
-- [ignr 2.2](https://pypi.org/project/ignr/) -> Plugin para gerar um arquivo .gitignore baseado na linguagem que voce definir.
-- [PyJWT 2.9.0](https://pyjwt.readthedocs.io/en/stable/) -> Autenticador entre duas partes, por meio de um token assinado que segue o padrão(RFC-7519)
-- [pwdlib 0.2.1](https://pypi.org/project/pwdlib/) -> auxiliar moderno p/ hashing de passwords
-- [psycopg-binary 3.2.3](https://pypi.org/project/psycopg-binary/)  -> Adaptador de PostgreSQL para Python.
+- [Poetry](https://python-poetry.org/docs/#zsh) -> Gerenciador de pacotes do Python (usado para configurar o ambiente).
+- [Taskipy](https://pypi.org/project/taskipy/) -> Executor de tarefas para projetos python.
+- [Ruff](https://docs.astral.sh/ruff/) -> Formatador e Linter Python extremamente rápido, escrito em Rust.
+- [ignr](https://pypi.org/project/ignr/) -> Plugin para gerar um arquivo .gitignore baseado na linguagem que voce definir.
+- [PyJWT](https://pyjwt.readthedocs.io/en/stable/) -> Autenticador entre duas partes, por meio de um token assinado que segue o padrão(RFC-7519)
+- [pwdlib](https://pypi.org/project/pwdlib/) -> auxiliar moderno p/ hashing de passwords
+- [psycopg-binary](https://pypi.org/project/psycopg-binary/)  -> Adaptador de PostgreSQL para Python.
 ### 🧪 Dependências Testes:
-- [Pytest 8.3.3](https://docs.pytest.org/en/stable/index.html) -> Testes simples e poderosos com Python.
-- [Pytest-Cov 5.0.0](https://pytest-cov.readthedocs.io/en/latest/) -> Um plugin para produzir relatórios de cobertura de testes.
-- [Factory-boy 3.3.1](https://factoryboy.readthedocs.io/en/latest/) -> Uma biblioteca que permite criar objetos de modelo de teste de forma rápida e fácil.
-- [Freezegun 1.5.1](https://github.com/spulec/freezegun) -> Uma biblioteca que permite "congelar" o tempo em um ponto específico ou avançá-lo conforme necessário durante os testes.
-- [Testcontainers 4.8.2](https://github.com/testcontainers) -> Facilita o uso de contêineres Docker para testes funcionais e de integração.
+- [Pytest](https://docs.pytest.org/en/stable/index.html) -> Testes simples e poderosos com Python.
+- [Pytest-Cov](https://pytest-cov.readthedocs.io/en/latest/) -> Um plugin para produzir relatórios de cobertura de testes.
+- [Factory-boy](https://factoryboy.readthedocs.io/en/latest/) -> Uma biblioteca que permite criar objetos de modelo de teste de forma rápida e fácil.
+- [Freezegun](https://github.com/spulec/freezegun) -> Uma biblioteca que permite "congelar" o tempo em um ponto específico ou avançá-lo conforme necessário durante os testes.
+- [Testcontainers](https://github.com/testcontainers) -> Facilita o uso de contêineres Docker para testes funcionais e de integração.
 ## Rode localmente
-1. Clone o Repositório:
+1. Clone o repositório:
 ```bash
   git clone https://github.com/amanmdest/fast_zero_sync
 ```
-2. Ative a máquina virtual e instale dependências:
+2. Instale dependências:
 ```bash
-  poetry shell
   poetry install
 ```
 3. Para rodar o projeto junto ao banco de dados postgres é necessário criar um arquivo .env na raiz do projeto como o do exemplo abaixo:
 ```bash
   .env
   DATABASE_URL="postgresql+psycopg://app_user:app_password@localhost:5432/app_db"
-  SECRET_KEY="8bf15dc4b43e98a24f62891ebf090e6839d99bce6c669de759706a243ef73737" # token_hex
+  SECRET_KEY="8bf15dc4b43e98a24f62891ebf090e6839d99bce6c669de759706a243ef73737" # exemplo token_hex
   ALGORITHM="HS256"
   ACCESS_TOKEN_EXPIRE_MINUTES=30
   
@@ -70,12 +69,9 @@ Ou para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de
   task run
 ```
 e acesse: http://127.0.0.1:8000/docs
-## Imagens
+## Diagrama Entidade-Relacionamento
 ![DER](imagens/fast_zero_DER.png)
-*Diagrama Entidade-Relacionamento*
-
-![HTML_COV](imagens/fast_zero_coverage.png)
-*Coverage - cobertura de testes do projeto*
-
+## HTML Coverage - Cobertura de testes do projeto
+![HTML_COV](imagens/fast_zero_coverage.png)=
+## Documentação Swagger - Endpoints Rotas da Api
 ![endpoints/ rotas](imagens/fast_zero_endpoints.png)
-*Endpoints/ rotas da API*
