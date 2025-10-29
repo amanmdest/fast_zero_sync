@@ -1,4 +1,4 @@
-<h1 align='center'><em>Fast Zero</em> em: Listas To-do's :zap::spiral_notepad:</h1>
+  <h1 align='center'><em>Fast Zero</em> em: Listas To-do's :zap::spiral_notepad:</h1>
 
 <div align='center'>
 <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi">
@@ -13,11 +13,12 @@
 
 ## Proposta do Curso | Fast-Zero 
 
-Tendo como foco o FastAPI, o curso traz em sua bagagem um panorama abrangente - e também pontual - atráves de conceitos, práticas e ferramentas de desenvolvimento e produção: cobertura completa de testes, deploy com a plataforma Fly.io e também um workflow automatizado de Integração Contínua(CI) com GitHub Actions.
+- Tendo como foco o FastAPI, o curso traz em sua bagagem um panorama abrangente - e também pontual - atráves de conceitos, práticas e ferramentas de desenvolvimento e produção: cobertura completa de testes, deploy com a plataforma Fly.io e também um workflow automatizado de Integração Contínua(CI) com GitHub Actions.
 
-Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e autorizações de usuários que podem criar, editar e deletar suas respectivas notas 'To-do'(que possuem 5 estados possíveis: 'draft'= rascunho, 'todo'= para fazer, 'doing'= fazendo, 'done'= feito, 'trash'= descarte).
+- Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e autorizações de usuários que podem criar, editar e deletar suas respectivas notas 'To-do'
+  - (que possuem 5 estados possíveis: 'draft'= rascunho, 'todo'= para fazer, 'doing'= fazendo, 'done'= feito, 'trash'= descarte)
 
-O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
+- Conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
 ## Bibliotecas | Ferramentas
 - [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) -> Última versão Python testada.
 - [Fastapi](https://fastapi.tiangolo.com/) -> Web Framework de alto desempenho para construir API's com Python.
