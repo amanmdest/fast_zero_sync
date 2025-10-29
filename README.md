@@ -42,7 +42,7 @@ O conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aul
 ## Rode localmente
 1. Clone o repositório:
 ```bash
-  git clone https://github.com/amanmdest/fast_zero_sync
+  git clone https://github.com/amanmdest/fast_zero_sync.git
 ```
 2. Instale dependências:
 ```bash
@@ -69,6 +69,7 @@ Ou para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de
   task run
 ```
 e acesse: http://127.0.0.1:8000/docs
+
 ## Diagrama Entidade-Relacionamento
 ![DER](imagens/fast_zero_DER.png)
 ## HTML Coverage - Cobertura de testes do projeto
