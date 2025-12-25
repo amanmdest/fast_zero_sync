@@ -1,4 +1,4 @@
-  <h1 align='center'><em>Fast Zero</em> em: Listas To-do's :zap::spiral_notepad:</h1>
+<h1 align='center'><em>Fast Zero(Sync)</em> em: Listas To-do's :zap::spiral_notepad:</h1>
 
 <div align='center'>
 <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi">
@@ -11,16 +11,20 @@
 <p align='center'>>>> <q>O simples bem feito!</q> <<<</p>
 <p align='center'>API desenvolvida no curso <a href="https://fastapidozero.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de Python e também em muito mais do que se permeia o mundo computacional.</p>
 
-## Proposta do Curso | Fast-Zero 
+## Outros Projetos do Curso
+#### [FastApi_Zero](https://github.com/amanmdest/fastapi_zero) - Versão assíncrona do projeto, com algumas novidades e melhorias de código.
+#### [MADR_Acervo_Digital](https://github.com/amanmdest/madr_novels) - Projeto Final de Conclusão do Curso
 
+## Sobre a API Fast-Zero
 - Tendo como foco o FastAPI, o curso traz em sua bagagem um panorama abrangente - e também pontual - atráves de conceitos, práticas e ferramentas de desenvolvimento e produção: cobertura completa de testes, deploy com a plataforma Fly.io e também um workflow automatizado de Integração Contínua(CI) com GitHub Actions.
 
 - Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e autorizações de usuários que podem criar, editar e deletar suas respectivas notas 'To-do'
   - (que possuem 5 estados possíveis: 'draft'= rascunho, 'todo'= para fazer, 'doing'= fazendo, 'done'= feito, 'trash'= descarte)
 
 - Conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
+
 ## Bibliotecas | Ferramentas
-- [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) -> Última versão Python testada.
+- [Python 3.12](https://www.python.org/downloads/release/python-3120/) -> Última versão Python testada.
 - [Fastapi](https://fastapi.tiangolo.com/) -> Web Framework de alto desempenho para construir API's com Python.
 - [Uvicorn](https://www.uvicorn.org/) -> Servidor ASGI.
 - [SQLAlchemy](https://docs.sqlalchemy.org/en/20/) -> Biblioteca open-source com Toolkit de SQL e Object Relational Mapper(ORM).
@@ -71,9 +75,14 @@ Ou para rodar o projeto de forma limitada no servidor local Uvicorn sem banco de
 ```
 e acesse: http://127.0.0.1:8000/docs
 
-## Diagrama Entidade-Relacionamento
-![DER](imagens/fast_zero_DER.png)
-## HTML Coverage - Cobertura de testes do projeto
-![HTML_COV](imagens/fast_zero_coverage.png)=
-## Documentação Swagger - Endpoints Rotas da Api
-![endpoints/ rotas](imagens/fast_zero_endpoints.png)
+## Imagens
+<div align="center">
+  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/imagens/fast_zero_DER.png" alt="fast_zero_DER" />
+  <p>Diagrama Entidade-Relacionamento</p>
+  
+  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/imagens/fast_zero_coverage.png" alt="fast_zero_coverage" />
+  <p>HTML Coverage - Cobertura de testes do projeto</p>
+  
+  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/imagens/fast_zero_endpoints.png" alt="fast_zero_endpoints" />
+  <p>Documentação Swagger - Endpoints Rotas da Api</p>
+</div>
