@@ -77,12 +77,12 @@ e acesse: http://127.0.0.1:8000/docs
 
 ## Imagens
 <div align="center">
-  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/imagens/fast_zero_DER.png" alt="fast_zero_DER" />
+  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/images/fast_zero_DER.png" alt="fast_zero_DER" />
   <p>Diagrama Entidade-Relacionamento</p>
   
-  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/imagens/fast_zero_coverage.png" alt="fast_zero_coverage" />
+  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/images/fast_zero_coverage.png" alt="fast_zero_coverage" />
   <p>HTML Coverage - Cobertura de testes do projeto</p>
   
-  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/imagens/fast_zero_endpoints.png" alt="fast_zero_endpoints" />
+  <img src="https://github.com/amanmdest/fast_zero_sync/blob/main/images/fast_zero_endpoints.png" alt="fast_zero_endpoints" />
   <p>Documentação Swagger - Endpoints Rotas da Api</p>
 </div>
