@@ -12,8 +12,8 @@
 <p align='center'>API desenvolvida no curso <a href="https://fastapidozero.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de Python e também em muito mais do que se permeia o mundo computacional.</p>
 
 ## Outros Projetos do Curso
-#### [FastApi_Zero](https://github.com/amanmdest/fastapi_zero) - Versão assíncrona do projeto, com algumas novidades e melhorias de código.
-#### [MADR_Acervo_Digital](https://github.com/amanmdest/madr_novels) - Projeto Final de Conclusão do Curso
+#### [FastApi Zero](https://github.com/amanmdest/fastapi_zero) - Versão assíncrona do projeto, com algumas novidades e melhorias de código.
+#### [MADR(Meu Acervo Digital de Romances)](https://github.com/amanmdest/madr_novels) - Projeto Final de Conclusão do Curso
 
 ## Sobre a API Fast-Zero
 - Tendo como foco o FastAPI, o curso traz em sua bagagem um panorama abrangente - e também pontual - atráves de conceitos, práticas e ferramentas de desenvolvimento e produção: cobertura completa de testes, deploy com a plataforma Fly.io e também um workflow automatizado de Integração Contínua(CI) com GitHub Actions.
