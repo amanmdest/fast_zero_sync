@@ -11,18 +11,16 @@
 <p align='center'>>>> <q>O simples bem feito!</q> <<<</p>
 <p align='center'>API desenvolvida no curso <a href="https://fastapidozero.dunossauro.com/">FastAPI do Zero</a> do maravilhoso @Dunossauro, professor de Python e também em muito mais do que se permeia o mundo computacional.</p>
 
-## Outros Projetos do Curso
+## Projetos Relacionados
 #### [FastApi Zero](https://github.com/amanmdest/fastapi_zero) - Versão assíncrona do projeto, com algumas novidades e melhorias de código.
 #### [MADR(Meu Acervo Digital de Romances)](https://github.com/amanmdest/madr_novels) - Projeto Final de Conclusão do Curso
-
-## Sobre a API Fast-Zero
+## Sobre o Fast Zero
 - Tendo como foco o FastAPI, o curso traz em sua bagagem um panorama abrangente - e também pontual - atráves de conceitos, práticas e ferramentas de desenvolvimento e produção: cobertura completa de testes, deploy com a plataforma Fly.io e também um workflow automatizado de Integração Contínua(CI) com GitHub Actions.
 
 - Fast-zero como foi apelidada nossa API, lida com o cadastro, autenticação e autorizações de usuários que podem criar, editar e deletar suas respectivas notas 'To-do'
   - (que possuem 5 estados possíveis: 'draft'= rascunho, 'todo'= para fazer, 'doing'= fazendo, 'done'= feito, 'trash'= descarte)
 
 - Conteúdo do curso se encontra gratuito em texto/livro e também em vídeo-aulas disponíveis no [canal do Duno](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP).
-
 ## Bibliotecas | Ferramentas
 - [Python 3.12](https://www.python.org/downloads/release/python-3120/) -> Última versão Python testada.
 - [Fastapi](https://fastapi.tiangolo.com/) -> Web Framework de alto desempenho para construir API's com Python.
